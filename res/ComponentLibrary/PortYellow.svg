@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="8.1999998mm"
+   height="8.1999998mm"
+   viewBox="0 0 8.1999998 8.1999998"
+   version="1.1"
+   id="svg1454"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="PortYellow.svg">
+  <defs
+     id="defs1448" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#211f23"
+     bordercolor="#ffffff"
+     borderopacity="0.2"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8.845484"
+     inkscape:cx="-1.5041616"
+     inkscape:cy="7.8330583"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g862"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-page="true"
+     inkscape:pagecheckerboard="true"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     units="in" />
+  <metadata
+     id="metadata1451">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g862">
+    <circle
+       r="4.1000004"
+       style="opacity:0.5;fill:#f3ffd5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.44018871;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="circle1446"
+       cx="4.1000004"
+       cy="4.0999994" />
+    <circle
+       r="3.6500003"
+       cy="4.0999994"
+       cx="4.1000004"
+       id="path977"
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.39187539;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+    <circle
+       style="opacity:1;fill:#ddff6a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.82033908;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="circle988"
+       cx="4.1000004"
+       cy="4.0999994"
+       r="2.7700813" />
+    <circle
+       r="1.7950001"
+       cy="4.0999994"
+       cx="4.1000004"
+       id="circle1444"
+       style="opacity:1;fill:#0d0709;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.17947948;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+  </g>
+</svg>

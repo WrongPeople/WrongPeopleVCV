@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="10mm"
+   height="10mm"
+   viewBox="0 0 10 10"
+   version="1.1"
+   id="svg1454"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="KnobMediumBlue.svg">
+  <defs
+     id="defs1448" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#211f23"
+     bordercolor="#ffffff"
+     borderopacity="0.2"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="6.5742456"
+     inkscape:cx="-10.461108"
+     inkscape:cy="13.859962"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g859"
+     showgrid="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-page="true"
+     inkscape:pagecheckerboard="true"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     units="in"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-others="false"
+     inkscape:bbox-nodes="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid875"
+       units="mm"
+       spacingx="0.49999999"
+       spacingy="0.49999999"
+       empspacing="2"
+       color="#7979ff"
+       opacity="0.0627451"
+       empcolor="#dfdfdf"
+       empopacity="0.07058824" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata1451">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g859"
+     transform="translate(0,-0.15999985)">
+    <circle
+       style="opacity:1;fill:#141216;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.30000001;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path930"
+       cx="5"
+       cy="5.1599998"
+       r="5" />
+    <path
+       style="opacity:0.75;fill:#daebff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.13435102;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.787402,0.05859375 0,16.92187525 h -3.779528 l 0,-16.902344 C 4.7759551,0.84133626 -3.6354021,15.135184 1.5546875,26.232422 5.9027124,37.697744 22.071064,41.582921 31.146484,33.330078 40.820021,25.788231 39.743771,9.1945248 29.183594,2.9609375 26.688579,1.3551594 23.739338,0.35267607 20.787402,0.05859375 Z M 22.673828,2.3652344 C 28.74911,3.6900937 33.79628,8.5779024 35.332031,14.599609 37.108525,20.99335 34.651253,28.258696 29.390625,32.289062 24.070112,36.585628 16.104163,37.108622 10.261719,33.558594 4.6026163,30.29915 1.2099058,23.574212 2.0039062,17.083984 2.6749449,10.049922 8.2065144,3.841157 15.119141,2.3710938 V 18.919922 h 7.554687 z"
+       transform="matrix(0.26458333,0,0,0.26458333,0,0.15999985)"
+       id="path909"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccc" />
+    <circle
+       style="opacity:1;fill:#6eabfe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.30000004;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path924"
+       cx="5"
+       cy="5.1599998"
+       r="3" />
+    <rect
+       style="opacity:1;fill:#141216;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.30000001;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect932"
+       width="0.99999994"
+       height="2.9999998"
+       x="4.5"
+       y="0.66000015" />
+    <circle
+       r="2.5"
+       cy="5.1599998"
+       cx="5"
+       id="circle926"
+       style="opacity:1;fill:#141216;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.25000003;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

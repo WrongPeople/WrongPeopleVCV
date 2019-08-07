@@ -1,0 +1,6 @@
+[submodule "dep/midifile"]
+	path = dep/midifile
+	url = https://github.com/craigsapp/midifile.git
+[submodule "dep/luajit"]
+	path = dep/luajit
+	url = http://luajit.org/git/luajit-2.0.git

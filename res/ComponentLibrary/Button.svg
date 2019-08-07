@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="8.1999998mm"
+   height="8.1999998mm"
+   viewBox="0 0 8.1999996 8.1999996"
+   id="svg4144"
+   version="1.1"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="Button.svg">
+  <defs
+     id="defs4146" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#211f23"
+     bordercolor="#ffffff"
+     borderopacity="0.11764706"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.0862241"
+     inkscape:cx="6.2272478"
+     inkscape:cy="22.642269"
+     inkscape:document-units="mm"
+     inkscape:current-layer="Button_0"
+     showgrid="false"
+     units="mm"
+     inkscape:window-width="1366"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     borderlayer="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4147"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4149">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="down"
+     style="display:inline"
+     transform="translate(0,-2.6456678)">
+    <g
+       style="display:inline"
+       id="Button_1"
+       inkscape:label="">
+      <circle
+         r="4.0999999"
+         cy="6.7456679"
+         cx="4.0999999"
+         id="circle840-6"
+         style="display:inline;opacity:1;fill:#fffdff;fill-opacity:0.39004152;fill-rule:nonzero;stroke:none;stroke-width:0.18426967;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         r="3.7500002"
+         style="opacity:1;fill:#211f23;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16853936;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle829-7"
+         cx="4.0999999"
+         cy="6.7456679" />
+      <circle
+         r="3"
+         cy="6.7456679"
+         cx="4.0999999"
+         id="circle855-5"
+         style="opacity:1;fill:#1a181a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13483149;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="up"
+     style="display:inline"
+     transform="translate(0,-2.6456678)">
+    <g
+       id="Button_0"
+       inkscape:label="">
+      <circle
+         r="4.0999999"
+         cy="6.7456679"
+         cx="4.0999999"
+         id="circle840"
+         style="display:inline;opacity:1;fill:#fffdff;fill-opacity:0.49792534;fill-rule:nonzero;stroke:none;stroke-width:0.18426967;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         r="3.7500002"
+         style="opacity:1;fill:#211f23;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16853936;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle829"
+         cx="4.0999999"
+         cy="6.7456679" />
+      <circle
+         r="3"
+         cy="6.7456679"
+         cx="4.0999999"
+         id="circle855"
+         style="opacity:1;fill:#464148;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.13483149;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
