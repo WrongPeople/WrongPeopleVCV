@@ -1,4 +1,4 @@
-#include "Lua.hpp"
+#include "LuaModule.hpp"
 #include "components/Lua/LuaDisplay.hpp"
 
 

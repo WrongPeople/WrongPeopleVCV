@@ -21,7 +21,7 @@ SOURCES += $(filter-out dep/midifile/src/Options.cpp, $(wildcard dep/midifile/sr
 
 SOURCES += src/Tourette.cpp
 SOURCES += src/MIDIPlayer.cpp
-SOURCES += src/Lua.cpp
+SOURCES += src/LuaModule.cpp
 
 # Static libs
 libluajit := dep/luajit/src/libluajit.a
@@ -31,7 +31,7 @@ OBJECTS += $(libluajit)
 DEPS += $(libluajit)
 
 $(libluajit):
-	cd dep/luajit && $(MAKE) CFLAGS="-fPIC"
+	cd dep/luajit && $(MAKE) BUILDMODE="static" CFLAGS="-fPIC"
 
 # Add files to the ZIP package when running `make dist`
 # The compiled plugin and "plugin.json" are automatically added.

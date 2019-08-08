@@ -34,6 +34,5 @@ Tourette syndrome simulator.
 git clone https://github.com/WrongPeople/WrongPeopleVCV.git
 cd WrongPeopleVCV
 git submodule update --init --recursive
-make dep
-make
+RACK_DIR=path/to/Rack-SDK make
 ```

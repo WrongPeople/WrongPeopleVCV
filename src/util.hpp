@@ -3,6 +3,7 @@
 #include "rack.hpp"
 
 #include <string>
+#include <sys/stat.h>
 
 
 #if ARCH_WIN
@@ -13,8 +14,6 @@
     #define DIR_SEP "\\"
 
 #else
-
-    #include <sys/stat.h>
 
     #define DIR_SEP "/"
 

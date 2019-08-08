@@ -13,7 +13,7 @@ bool systemIsDirectory(std::string path) {
     struct stat statbuf;
     if (stat(path.c_str(), &statbuf))
         return false;
-    return S_ISDIR(statbuf.st_mode);
+    return statbuf.st_mode & S_IFDIR;
 }
 
 std::string timeToString(float seconds) {

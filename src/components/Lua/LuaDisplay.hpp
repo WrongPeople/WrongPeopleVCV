@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lua.hpp"
+#include "../../LuaModule.hpp"
 
 
 struct LuaDisplay : TransparentWidget {
@@ -30,7 +30,6 @@ struct LuaDisplay : TransparentWidget {
         box.size = size;
         this->module = module;
         font = APP->window->loadFont(asset::plugin(pluginInstance, "res/fonts/ShareTechMono-Regular.ttf"));
-        // 150.000000 143.297241
         valuesDisplay = Rect(7.f, 29.f, 105.f, 105.f);
         scopeDisplay = Rect(0.f, 33.f, size.x, size.y - 47.f);
     }
