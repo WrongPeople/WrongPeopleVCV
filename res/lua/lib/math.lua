@@ -5,7 +5,7 @@
 --- Limits `x` between `a` and `b`.
 --- If `b < a`, returns a.
 function clamp(x, a, b)
-    math.max(math.min(x, b), a)
+    return math.max(math.min(x, b), a)
 end
 
 
