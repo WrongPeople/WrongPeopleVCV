@@ -10,7 +10,7 @@
   "pluginUrl": "https://github.com/WrongPeople/WrongPeopleVCV",
   "manualUrl": "",
   "sourceUrl": "https://github.com/WrongPeople/WrongPeopleVCV",
-  "donateUrl": "",
+  "donateUrl": "https://www.donationalerts.com/r/wrongpeople",
   "modules": [
     {
       "slug": "MIDIPlayer",
