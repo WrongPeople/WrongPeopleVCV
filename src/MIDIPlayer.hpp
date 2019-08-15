@@ -10,6 +10,30 @@
 
 struct MIDIPlayer : Module {
 
+    struct MIDIFile : smf::MidiFile {
+
+        // Cross-compiled with -O3 crashes on creating std::fstream instance.
+        // It also reproduced with empty (template) plugin.
+        bool __attribute__((optimize("O0"))) readUnoptimized(const std::string &filename) {
+            m_timemapvalid = 0;
+            setFilename(filename);
+            m_rwstatus = true;
+
+            std::fstream input;
+            input.open(filename.c_str(), std::ios::binary | std::ios::in);
+
+            if (!input.is_open()) {
+                m_rwstatus = false;
+                return m_rwstatus;
+            }
+
+            m_rwstatus = read(input);
+            return m_rwstatus;
+        }
+
+    };
+
+
     static const int TRACKS = 6;
 
     enum ParamIds {
@@ -48,7 +72,7 @@ struct MIDIPlayer : Module {
     std::string fileName = "";
     float fileDuration = 0.0;
     std::string fileDurationStr = "";
-    smf::MidiFile midiFile;
+    MIDIFile midiFile;
 
     int track = 0;
     int channel = -1;
