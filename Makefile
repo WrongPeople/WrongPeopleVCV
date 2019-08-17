@@ -30,8 +30,10 @@ OBJECTS += $(libluajit)
 # Dependencies
 DEPS += $(libluajit)
 
+LUAJIT_CC ?= gcc
+
 $(libluajit):
-	cd dep/luajit && $(MAKE) BUILDMODE="static" CFLAGS="-fPIC"
+	cd dep/luajit && $(MAKE) BUILDMODE="static" CFLAGS="-fPIC" CC="$(LUAJIT_CC)"
 
 # Add files to the ZIP package when running `make dist`
 # The compiled plugin and "plugin.json" are automatically added.
