@@ -17,5 +17,6 @@ bool systemIsDirectory(std::string path) {
 }
 
 std::string timeToString(float seconds) {
-    return rack::string::f("%02u:%02u", (unsigned) (seconds / 60), (unsigned) seconds % 60);
+    unsigned minutes = unsigned (seconds / 60);
+    return rack::string::f("%02u:%04.1f", minutes, seconds - minutes * 60);
 }

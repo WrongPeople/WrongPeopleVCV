@@ -26,7 +26,7 @@ struct MIDIPlayerDisplay : TransparentWidget {
         if(module && module->fileLoaded) {
             std::string timeStr = timeToString(module->playingTime) + " / " + module->fileDurationStr;
 
-            nvgFontSize(args.vg, 18);
+            nvgFontSize(args.vg, 16);
             nvgFontFaceId(args.vg, font->handle);
             nvgTextLetterSpacing(args.vg, 0);
             nvgFillColor(args.vg, COLOR_GREEN_3);
