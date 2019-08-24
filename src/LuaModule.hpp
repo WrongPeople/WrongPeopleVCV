@@ -161,8 +161,7 @@ struct Lua : Module {
     static int scriptLog(lua_State *L) {
         Lua *module = (Lua *) lua_touserdata(L, lua_upvalueindex(1));
 
-        const char *cmsg = luaL_checkstring(L, 1);
-        std::string msg = std::string(cmsg);
+        std::string msg = luaL_checkstring(L, 1);
 
         unsigned long lines = msg.length() / SCRIPT_LOG_MSG_LEN;
 

@@ -162,6 +162,15 @@ void Lua::createLuaState() {
             scriptError();
         }
     }
+
+    lua_getglobal(L, "package");
+    lua_getfield(L, -1, "path");
+    std::string path = lua_tostring(L, -1);
+    path.append(";" + rack::string::directory(scriptPath) + DIR_SEP + "?.lua");
+    lua_pop(L, 1);
+    lua_pushstring(L, path.c_str());
+    lua_setfield(L, -2, "path");
+    lua_pop(L, 1);
 }
 
 void Lua::setGlobalFunction(const char * name, lua_CFunction fn) {
