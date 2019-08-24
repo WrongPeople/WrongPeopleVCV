@@ -89,6 +89,18 @@ void Lua::clearScriptLogMessages() {
     }
 }
 
+void Lua::addScriptLogMessage(std::string msg) {
+    scriptLogMessages[scriptLogMessagesOffset] = msg;
+
+    if(scriptLogMessagesOffset < SCRIPT_LOG_LEN - 1)
+        scriptLogMessagesOffset++;
+    else
+        scriptLogMessagesOffset = 0;
+
+    if(scriptLogMessagesCount < SCRIPT_LOG_LEN)
+        scriptLogMessagesCount++;
+}
+
 void Lua::clearScriptPoints() {
     for(int i = 0; i < SCRIPT_POINTS; i++) {
         scriptPoints[i] = ScriptPoint{};

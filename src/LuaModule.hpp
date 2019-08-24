@@ -115,6 +115,7 @@ struct Lua : Module {
     void scriptError();
     void scriptError(const char * err);
     void clearScriptLogMessages();
+    void addScriptLogMessage(std::string msg);
     void clearScriptPoints();
     void clearScriptValues();
 
@@ -160,16 +161,17 @@ struct Lua : Module {
     static int scriptLog(lua_State *L) {
         Lua *module = (Lua *) lua_touserdata(L, lua_upvalueindex(1));
 
-        const char *msg = lua_tostring(L, 1);
-        module->scriptLogMessages[module->scriptLogMessagesOffset] = std::string(msg, SCRIPT_LOG_MSG_LEN);
+        const char *cmsg = luaL_checkstring(L, 1);
+        std::string msg = std::string(cmsg);
 
-        if(module->scriptLogMessagesOffset < SCRIPT_LOG_LEN - 1)
-            module->scriptLogMessagesOffset++;
-        else
-            module->scriptLogMessagesOffset = 0;
+        unsigned long lines = msg.length() / SCRIPT_LOG_MSG_LEN;
 
-        if(module->scriptLogMessagesCount < SCRIPT_LOG_LEN)
-            module->scriptLogMessagesCount++;
+        if(msg.length() % SCRIPT_LOG_MSG_LEN > 0)
+            lines++;
+
+        for(unsigned long l = 0; l < lines; l++) {
+            module->addScriptLogMessage(msg.substr(l * SCRIPT_LOG_MSG_LEN, SCRIPT_LOG_MSG_LEN));
+        }
 
         return 0;
     }

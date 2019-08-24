@@ -15,7 +15,6 @@ function clearLog() end
 
 ---
 --- Add log message.
---- Only the first 27 characters will be displayed.
 --- Works only in `log` display mode.
 ---@param message string
 function log(message) end
