@@ -12,9 +12,13 @@ struct MIDIPlayer : Module {
 
     struct MIDIFile : smf::MidiFile {
 
-        // Cross-compiled with -O3 crashes on creating std::fstream instance.
+        // Cross-compiled with mingw gcc with -O3 crashes on creating std::fstream instance.
         // It also reproduced with empty (template) plugin.
-        bool __attribute__((optimize("O0"))) readUnoptimized(const std::string &filename) {
+        bool
+        #ifdef __MINGW64__
+            __attribute__((optimize(0)))
+        #endif
+        readUnoptimized(const std::string &filename) {
             m_timemapvalid = 0;
             setFilename(filename);
             m_rwstatus = true;
@@ -102,9 +106,9 @@ struct MIDIPlayer : Module {
     bool pedal[TRACKS];
     int rotateIndex[TRACKS];
 
-    uint8_t notes[TRACKS][16] = {0};
-    bool gates[TRACKS][16] = {false};
-    uint8_t velocities[TRACKS][16] = {0};
+    uint8_t notes[TRACKS][16] = {{0}};
+    bool gates[TRACKS][16] = {{false}};
+    uint8_t velocities[TRACKS][16] = {{0}};
     dsp::PulseGenerator retriggerPulses[TRACKS][16];
     std::vector<uint8_t> heldNotes;
 

@@ -89,7 +89,7 @@ struct Lua : Module {
     };
     ScriptValue scriptValues[SCRIPT_VALUES];
 
-    float scopeBuffers[SCOPE_VALUES][SCOPE_BUFFER_SIZE] = {0};
+    float scopeBuffers[SCOPE_VALUES][SCOPE_BUFFER_SIZE] = {{0}};
     int scopeBufferIndex = 0;
     int scopeFrameIndex = 0;
     dsp::SchmittTrigger scopeTrigger;

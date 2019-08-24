@@ -30,15 +30,46 @@ OBJECTS += $(libluajit)
 # Dependencies
 DEPS += $(libluajit)
 
-LUAJIT_CC ?= gcc
-
-$(libluajit):
-	cd dep/luajit && $(MAKE) BUILDMODE="static" CFLAGS="-fPIC" CC="$(LUAJIT_CC)"
-
 # Add files to the ZIP package when running `make dist`
 # The compiled plugin and "plugin.json" are automatically added.
 DISTRIBUTABLES += $(wildcard LICENSE*) res
 
 # Include the VCV Rack plugin Makefile framework
 include $(RACK_DIR)/plugin.mk
+
+
+ifneq (, $(findstring -clang, $(CC)))
+	LJ_HOST_CC ?= clang
+	LJ_CC ?= clang
+	LJ_CROSS ?= $(subst -clang,,$(CC))-
+else ifneq (, $(findstring -gcc, $(CC)))
+	LJ_HOST_CC ?= gcc
+	LJ_CC ?= gcc
+	LJ_CROSS ?= $(subst -gcc,,$(CC))-
+else
+	LJ_HOST_CC ?= $(CC)
+	LJ_CC ?= $(CC)
+	LJ_CROSS ?=
+endif
+
+ifdef ARCH_LIN
+	LJ_TARGET_SYS ?= Linux
+endif
+ifdef ARCH_MAC
+	LJ_TARGET_SYS ?= Darwin
+endif
+ifdef ARCH_WIN
+	LJ_TARGET_SYS ?= Windows
+endif
+
+$(libluajit):
+	$(MAKE) -C dep/luajit/src BUILDMODE="static" CFLAGS="-fPIC" \
+	HOST_CC="$(LJ_HOST_CC)" CC="$(LJ_CC)" CROSS="$(LJ_CROSS)" TARGET_SYS="$(LJ_TARGET_SYS)"
+
+
+# It's no possible to override `clean` target without warnings.
+clean-dep:
+	$(MAKE) -C dep/luajit/src clean
+
+cleanall: clean clean-dep
 
