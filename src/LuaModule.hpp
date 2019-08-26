@@ -106,7 +106,7 @@ struct Lua : Module {
         onReset();
     }
 
-    void createLuaState();
+    bool createLuaState();
     void setGlobalFunction(const char *name, lua_CFunction fn);
     void setGlobalClosure(const char *name, lua_CFunction fn);
 

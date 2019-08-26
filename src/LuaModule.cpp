@@ -27,7 +27,9 @@ void Lua::loadScript() {
         return;
 
     unloadScript();
-    createLuaState();
+
+    if(!createLuaState())
+        return;
 
     if(luaL_loadfile(L, scriptPath.c_str())) {
         scriptError();
@@ -113,8 +115,13 @@ void Lua::clearScriptValues() {
     }
 }
 
-void Lua::createLuaState() {
+bool Lua::createLuaState() {
     L = luaL_newstate();
+    if(L == NULL) {
+        scriptError("Cannot create state");
+        return false;
+    }
+
     luaL_openlibs(L);
 
     setGlobalClosure("setDisplayMode", Lua::scriptSetDisplayMode);
@@ -171,6 +178,8 @@ void Lua::createLuaState() {
     lua_pushstring(L, path.c_str());
     lua_setfield(L, -2, "path");
     lua_pop(L, 1);
+
+    return true;
 }
 
 void Lua::setGlobalFunction(const char * name, lua_CFunction fn) {
