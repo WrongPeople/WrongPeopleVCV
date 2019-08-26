@@ -63,7 +63,7 @@ ifdef ARCH_WIN
 endif
 
 $(libluajit):
-	$(MAKE) -C dep/luajit/src BUILDMODE="static" CFLAGS="-fPIC" \
+	$(MAKE) -C dep/luajit/src BUILDMODE=static CFLAGS=-fPIC MACOSX_DEPLOYMENT_TARGET=10.7 Q= E="@:" \
 	HOST_CC="$(LJ_HOST_CC)" CC="$(LJ_CC)" CROSS="$(LJ_CROSS)" TARGET_SYS="$(LJ_TARGET_SYS)"
 
 
