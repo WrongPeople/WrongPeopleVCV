@@ -17,7 +17,9 @@ Multitrack MIDI files player.
 
 Lua interpreter with 8 inputs, 8 outputs and display.
 
-See [res/lua](./res/lua) directory for available functions and classes.
+See [res/lua](./res/lua/api.lua) for available functions and classes.
+
+See also an [examples](./res/lua/examples).
 
 
 ### Tourette

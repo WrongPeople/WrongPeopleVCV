@@ -374,7 +374,7 @@ struct PolyModeItem : MenuItem {
             "Reuse",
             "Reset",
         };
-        for (int i = 0; i < MIDIPlayer::NUM_POLY_MODES; i++) {
+        for(int i = 0; i < MIDIPlayer::NUM_POLY_MODES; i++) {
             MIDIPlayer::PolyMode polyMode = (MIDIPlayer::PolyMode) i;
             PolyModeValueItem *item = new PolyModeValueItem;
             item->text = polyModeNames[i];

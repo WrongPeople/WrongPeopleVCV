@@ -56,10 +56,8 @@ struct Lua : Module {
 
     lua_State *L = NULL;
 
-    std::vector<std::string> scriptLibs = {
-        "res/lua/lib/dsp.lua",
-        "res/lua/lib/math.lua",
-    };
+    static const std::vector<std::string> scriptLibs;
+    static const std::vector<std::vector<std::string>> scriptExamples;
 
     enum DisplayMode {
         DISABLED_MODE,
@@ -172,6 +170,8 @@ struct Lua : Module {
         for(unsigned long l = 0; l < lines; l++) {
             module->addScriptLogMessage(msg.substr(l * SCRIPT_LOG_MSG_LEN, SCRIPT_LOG_MSG_LEN));
         }
+
+        std::cout << "Lua: " << msg << std::endl;
 
         return 0;
     }

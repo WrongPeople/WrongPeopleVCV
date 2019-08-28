@@ -2,6 +2,18 @@
 #include "components/Lua/LuaDisplay.hpp"
 
 
+const std::vector<std::string> Lua::scriptLibs = {
+    "res/lua/lib/dsp.lua",
+    "res/lua/lib/math.lua",
+};
+
+const std::vector<std::vector<std::string>> Lua::scriptExamples = {
+    {"VCO", "res/lua/examples/vco.lua"},
+    {"Delay", "res/lua/examples/delay.lua"},
+    {"Scope", "res/lua/examples/scope.lua"},
+};
+
+
 json_t * Lua::dataToJson() {
     json_t *rootJ = json_object();
     json_object_set_new(rootJ, "scriptPath", json_string(scriptPath.c_str()));
@@ -278,6 +290,34 @@ struct LoadScriptItem : MenuItem {
 };
 
 
+struct ScriptExampleItem : MenuItem {
+    Lua *module;
+    std::string scriptPath;
+
+    void onAction(const event::Action &e) override {
+        module->scriptPath = scriptPath;
+        module->loadScript();
+    }
+};
+
+
+struct ScriptExamplesItem : MenuItem {
+    Lua *module;
+
+    Menu *createChildMenu() override {
+        Menu *menu = new Menu;
+        for(auto const &example : Lua::scriptExamples) {
+            ScriptExampleItem *item = new ScriptExampleItem;
+            item->text = example[0];
+            item->scriptPath = asset::plugin(pluginInstance, example[1]);
+            item->module = module;
+            menu->addChild(item);
+        }
+        return menu;
+    }
+};
+
+
 struct LuaWidget : ModuleWidget {
 
     LuaWidget(Lua *module) {
@@ -314,6 +354,12 @@ struct LuaWidget : ModuleWidget {
         loadScriptItem->text = "Load Script";
         loadScriptItem->module = module;
         menu->addChild(loadScriptItem);
+
+        ScriptExamplesItem *scriptExamplesItem = new ScriptExamplesItem;
+        scriptExamplesItem->text = "Script Examples";
+        scriptExamplesItem->rightText = RIGHT_ARROW;
+        scriptExamplesItem->module = module;
+        menu->addChild(scriptExamplesItem);
     }
 
 };
