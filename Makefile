@@ -6,7 +6,7 @@ endif
 RACK_DIR ?= ../..
 
 # FLAGS will be passed to both the C and C++ compiler
-FLAGS += -I./dep/midifile/include
+FLAGS += -I./midifile/include
 CFLAGS +=
 CXXFLAGS +=
 
@@ -16,7 +16,7 @@ LDFLAGS +=
 
 # Add .cpp and .c files to the build
 SOURCES += $(wildcard src/*.cpp)
-SOURCES += $(filter-out dep/midifile/src/Options.cpp, $(wildcard dep/midifile/src/*.cpp))
+SOURCES += $(filter-out midifile/src/Options.cpp, $(wildcard midifile/src/*.cpp))
 
 include dep.mk
 
@@ -34,14 +34,14 @@ DISTRIBUTABLES += $(wildcard LICENSE*) res
 all: dep
 
 clean-dep:
-ifneq ("$(wildcard dep/luajit/src)","")
-	$(MAKE) -C dep/luajit/src clean
+ifneq ("$(wildcard luajit/src)","")
+	$(MAKE) -C luajit/src clean
 endif
 ifneq ("$(wildcard dep/lua/src)","")
 	$(MAKE) -C dep/lua/src clean
 endif
 
-clean: clean-dep
+cleandep: clean-dep
 
 
 # Include the VCV Rack plugin Makefile framework

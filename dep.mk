@@ -1,7 +1,7 @@
 include $(RACK_DIR)/arch.mk
 
 
-luajit = dep/luajit/src/libluajit.a
+luajit = luajit/src/libluajit.a
 lua = dep/lua/src/liblua.a
 
 
@@ -12,7 +12,7 @@ else
 	LUA_IMPL ?= luajit
 endif
 
-FLAGS += -I./dep/$(LUA_IMPL)/src
+FLAGS += -I./$(dir $($(LUA_IMPL)))
 OBJECTS := $($(LUA_IMPL)) $(OBJECTS)
 DEPS += $($(LUA_IMPL))
 
@@ -51,7 +51,7 @@ endif
 
 
 $(luajit):
-	$(MAKE) -C dep/luajit/src Q= E="@:" BUILDMODE=static CCOPT= CFLAGS="$(LUA_CFLAGS) $(LUAJIT_CFLAGS)" \
+	$(MAKE) -C luajit/src Q= E="@:" BUILDMODE=static CCOPT= CFLAGS="$(LUA_CFLAGS) $(LUAJIT_CFLAGS)" \
 	HOST_CC="$(LUAJIT_HOST_CC)" CC="$(LUA_CC)" CROSS="$(LUA_CROSS)" TARGET_SYS="$(LUAJIT_TARGET_SYS)" libluajit.a
 
 
