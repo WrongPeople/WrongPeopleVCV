@@ -82,7 +82,7 @@ struct MIDIPlayer : Module {
     int channel = -1;
 
     bool playing = false;
-    float playingTime = 0.0;
+    double playingTime = 0.0;
     long playingEvent = 0;
 
     bool loop = false;
