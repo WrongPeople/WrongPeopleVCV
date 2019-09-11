@@ -78,9 +78,6 @@ struct MIDIPlayer : Module {
     std::string fileDurationStr = "";
     MIDIFile midiFile;
 
-    int track = 0;
-    int channel = -1;
-
     bool playing = false;
     double playingTime = 0.0;
     long playingEvent = 0;
@@ -110,14 +107,17 @@ struct MIDIPlayer : Module {
     bool gates[TRACKS][16] = {{false}};
     uint8_t velocities[TRACKS][16] = {{0}};
     dsp::PulseGenerator retriggerPulses[TRACKS][16];
-    std::vector<uint8_t> heldNotes;
+    std::vector<uint8_t> heldNotes[TRACKS];
 
     MIDIPlayer() {
         config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
         configParam(PLAY_PARAM, 0.0, 1.0, 0.0, "Play");
         configParam(STOP_PARAM, 0.0, 1.0, 0.0, "Stop");
         configParam(LOOP_PARAM, 0.0, 1.0, 0.0, "Loop");
-        heldNotes.reserve(128);
+
+        for(int t = 0; t < TRACKS; t++) {
+            heldNotes[t].reserve(128);
+        }
         onReset();
     }
 

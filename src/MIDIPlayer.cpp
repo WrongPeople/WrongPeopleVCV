@@ -116,20 +116,18 @@ void MIDIPlayer::process(const ProcessArgs &args) {
 
     if(playing) {
         for(int i = 0; i < 500; i++) {
-            if(playingEvent >= midiFile[track].size()) {
+            if(playingEvent >= midiFile[0].size()) {
                 if(loop)
                     play();
                 else
                     stop();
                 break;
             }
-            if(midiFile[track][playingEvent].seconds > playingTime) {
+            if(midiFile[0][playingEvent].seconds > playingTime) {
                 playingTime += args.sampleTime;
                 break;
             }
-            if(channel < 0 || channel == midiFile[track][playingEvent].getChannel()) {
-                processMessage(midiFile[track][playingEvent].track, &midiFile[track][playingEvent]);
-            }
+            processMessage(midiFile[0][playingEvent].track, &midiFile[0][playingEvent]);
             playingEvent++;
         }
     }
@@ -155,6 +153,9 @@ void MIDIPlayer::process(const ProcessArgs &args) {
 }
 
 void MIDIPlayer::processMessage(int track, smf::MidiMessage *msg) {
+    if(track >= TRACKS)
+        return;
+
     switch(msg->getCommandByte() >> 4) { // status
         case 0x8: // note off
             releaseNote(track, (uint8_t) msg->getKeyNumber());
@@ -201,24 +202,24 @@ void MIDIPlayer::processCC(int track, smf::MidiMessage *msg) {
 }
 
 void MIDIPlayer::pressNote(int track, uint8_t note, int channel) {
-    auto it = std::find(heldNotes.begin(), heldNotes.end(), note);
-    if(it != heldNotes.end())
-        heldNotes.erase(it);
-    heldNotes.push_back(note);
+    auto it = std::find(heldNotes[track].begin(), heldNotes[track].end(), note);
+    if(it != heldNotes[track].end())
+        heldNotes[track].erase(it);
+    heldNotes[track].push_back(note);
     notes[track][channel] = note;
     gates[track][channel] = true;
     retriggerPulses[track][channel].trigger();
 }
 
 void MIDIPlayer::releaseNote(int track, uint8_t note) {
-    auto it = std::find(heldNotes.begin(), heldNotes.end(), note);
-    if(it != heldNotes.end())
-        heldNotes.erase(it);
+    auto it = std::find(heldNotes[track].begin(), heldNotes[track].end(), note);
+    if(it != heldNotes[track].end())
+        heldNotes[track].erase(it);
     if(pedal[track])
         return;
     if(channels == 1) {
-        if(note == notes[track][0] && !heldNotes.empty()) {
-            uint8_t lastNote = heldNotes.back();
+        if(note == notes[track][0] && !heldNotes[track].empty()) {
+            uint8_t lastNote = heldNotes[track].back();
             notes[track][0] = lastNote;
             gates[track][0] = true;
             return;
@@ -239,7 +240,7 @@ void MIDIPlayer::releasePedal(int track) {
     for(int c = 0; c < 16; c++) {
         gates[track][c] = false;
     }
-    for(uint8_t note : heldNotes) {
+    for(uint8_t note : heldNotes[track]) {
         for(int c = 0; c < channels; c++) {
             if(notes[track][c] == note) {
                 gates[track][c] = true;
@@ -247,8 +248,8 @@ void MIDIPlayer::releasePedal(int track) {
         }
     }
     if(channels == 1) {
-        if(!heldNotes.empty()) {
-            uint8_t lastNote = heldNotes.back();
+        if(!heldNotes[track].empty()) {
+            uint8_t lastNote = heldNotes[track].back();
             notes[track][0] = lastNote;
         }
     }
@@ -298,7 +299,7 @@ void MIDIPlayer::panic() {
         }
         pedal[t] = false;
         rotateIndex[t] = -1;
-        heldNotes.clear();
+        heldNotes[t].clear();
     }
 }
 
