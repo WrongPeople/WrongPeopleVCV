@@ -32,7 +32,7 @@ else
 endif
 
 
-LUA_CFLAGS = -O3 -march=nocona -funsafe-math-optimizations -fomit-frame-pointer -fno-stack-protector -fPIC
+LUA_CFLAGS = -O2 -march=nocona -funsafe-math-optimizations -fomit-frame-pointer -fno-stack-protector -fPIC
 LUAJIT_CFLAGS =
 LUASTD_CFLAGS = -Wall -DLUA_COMPAT_5_2
 
