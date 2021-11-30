@@ -103,6 +103,11 @@ struct Lua : Module {
     Lua() {
         config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
         configParam(RELOAD_PARAM, 0.0, 1.0, 0.0, "Reload Script");
+
+        for (int i = 0; i < SCRIPT_PORTS; i++) {
+            configInput(SCRIPT_INPUTS + i, string::f("Input %d", i));
+            configOutput(SCRIPT_OUTPUTS + i, string::f("Output %d", i));
+        }
         onReset();
     }
 

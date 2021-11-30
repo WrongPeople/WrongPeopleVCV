@@ -211,7 +211,16 @@ struct Tourette : Module {
         configParam(Tourette::ATTACK_PARAM, 0.0, 1.0, 0.0, "Attack", " s");
         configParam(Tourette::RELEASE_PARAM, 0.0, 1.0, 0.0, "Release", " s");
         configParam(Tourette::POLY_PARAM, 1.0, 8.0, 4.0, "Max polyphony");
-        configParam(Tourette::STEREO_PARAM, 0.f, 1.f, 0.f, "Stereo mode");
+        configSwitch(Tourette::STEREO_PARAM, 0.f, 1.f, 0.f, "Stereo mode", {"Split", "Stereo"});
+
+        configInput(SIG_A_INPUT, "Signal A");
+        configInput(SIG_B_INPUT, "Signal B");
+        configInput(PLAY_INPUT, "Trigger");
+        configOutput(SIG_A_OUTPUT, "Signal A");
+        configOutput(SIG_B_OUTPUT, "Signal B");
+
+        configBypass(SIG_A_INPUT, SIG_A_OUTPUT);
+        configBypass(SIG_B_INPUT, SIG_B_OUTPUT);
 
         onSampleRateChange();
 
