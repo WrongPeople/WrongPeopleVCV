@@ -52,7 +52,7 @@ void Lua::loadScript() {
         }
         else {
             scriptLoaded = true;
-            displayMessage = string::filename(scriptPath);
+            displayMessage = rack::system::getFilename(scriptPath);
             lights[RELOAD_LIGHT_GREEN].setBrightness(1);
             lights[RELOAD_LIGHT_RED].setBrightness(0);
         }
@@ -185,7 +185,7 @@ bool Lua::createLuaState() {
     lua_getglobal(L, "package");
     lua_getfield(L, -1, "path");
     std::string path = lua_tostring(L, -1);
-    path.append(";" + rack::string::directory(scriptPath) + DIR_SEP + "?.lua");
+    path.append(";" + rack::system::getDirectory(scriptPath) + DIR_SEP + "?.lua");
     lua_pop(L, 1);
     lua_pushstring(L, path.c_str());
     lua_setfield(L, -2, "path");
@@ -277,7 +277,7 @@ struct LoadScriptItem : MenuItem {
     Lua *module;
 
     void onAction(const event::Action &e) override {
-        std::string dir = module->scriptPath.empty() ? "" : rack::string::directory(module->scriptPath).c_str();
+        std::string dir = module->scriptPath.empty() ? "" : rack::system::getDirectory(module->scriptPath).c_str();
         osdialog_filters *filters = osdialog_filters_parse("Lua Script:lua,luna,lunaire,anair");
         char *path = osdialog_file(OSDIALOG_OPEN, dir.empty() ? "" : dir.c_str(), NULL, filters);
         if(path) {

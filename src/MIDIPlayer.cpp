@@ -57,7 +57,7 @@ void MIDIPlayer::loadFile() {
         midiFile.doTimeAnalysis();
         midiFile.linkNotePairs();
         midiFile.joinTracks();
-        fileName = string::filename(filePath);
+        fileName = rack::system::getFilename(filePath);
         fileDuration = (float) midiFile.getFileDurationInSeconds();
         fileDurationStr = timeToString(fileDuration);
         fileLoaded = true;
@@ -322,7 +322,7 @@ struct LoadFileItem : MenuItem {
     MIDIPlayer *module;
 
     void onAction(const event::Action &e) override {
-        std::string dir = module->filePath.empty() ? "" : rack::string::directory(module->filePath).c_str();
+        std::string dir = module->filePath.empty() ? "" : rack::system::getDirectory(module->filePath).c_str();
         osdialog_filters *filters = osdialog_filters_parse("MIDI File:mid,midi");
         char *path = osdialog_file(OSDIALOG_OPEN, dir.empty() ? "" : dir.c_str(), NULL, filters);
         if(path) {

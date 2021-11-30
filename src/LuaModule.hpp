@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "plugin.hpp"
 #include "osdialog.h"
 
