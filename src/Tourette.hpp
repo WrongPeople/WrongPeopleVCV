@@ -205,7 +205,7 @@ struct Tourette : Module {
         configParam(THRESH_LO_PARAM, -60.f, 3.f, -42.f, "Low Threshold", " dB");
         configParam(THRESH_HI_PARAM, -54.f, 6.f, -18.f, "High Threshold", " dB");
         configParam(Tourette::MIN_LEN_PARAM, -0.3f, 0.3, -0.1f, "Min shot length", " s");
-        configParam(Tourette::MAX_LEN_PARAM, -1.0f, 1.0, -0.3f, "Max shot length", " s");
+        configParam(Tourette::MAX_LEN_PARAM, -1.0f, 3.0, -0.3f, "Max shot length", " s");
         configParam(Tourette::REPEATS_PARAM, 1.0, 16.0, 8.0, "Repeats");
         configParam(Tourette::RAND_PARAM, 0.0, 1.0, 0.5, "Randomness");
         configParam(Tourette::ATTACK_PARAM, 0.0, 1.0, 0.0, "Attack", " s");
