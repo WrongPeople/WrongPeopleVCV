@@ -209,7 +209,7 @@ struct Tourette : Module {
         configParam(Tourette::REPEATS_PARAM, 1.0, 16.0, 8.0, "Repeats");
         configParam(Tourette::RAND_PARAM, 0.0, 1.0, 0.5, "Randomness");
         configParam(Tourette::ATTACK_PARAM, 0.0, 1.0, 0.0, "Attack", " s");
-        configParam(Tourette::RELEASE_PARAM, 0.0, 1.0, 0.0, "Release", " s");
+        configParam(Tourette::RELEASE_PARAM, 0.0, 3.0, 0.0, "Release", " s");
         configParam(Tourette::POLY_PARAM, 1.0, 8.0, 4.0, "Max polyphony");
         configSwitch(Tourette::STEREO_PARAM, 0.f, 1.f, 0.f, "Stereo mode", {"Split", "Stereo"});
 
