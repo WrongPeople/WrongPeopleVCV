@@ -200,7 +200,7 @@ struct Tourette : Module {
     unsigned int maxBufSize = 0;
 
     Tourette() {
-		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+        config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
         configParam(THRESH_LO_PARAM, -60.f, 3.f, -42.f, "Low Threshold", " dB");
         configParam(THRESH_HI_PARAM, -54.f, 6.f, -18.f, "High Threshold", " dB");
@@ -233,6 +233,7 @@ struct Tourette : Module {
         }
     }
 
+    void onReset() override;
     void onSampleRateChange() override;
 
     void process(const ProcessArgs &args) override;
@@ -246,5 +247,6 @@ struct Tourette : Module {
     void processInputsSplit();
     void processInputsStereo();
     void processBuffers();
+    void clearBuffers();
 
 };
