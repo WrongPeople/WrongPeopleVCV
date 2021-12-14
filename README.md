@@ -8,7 +8,7 @@ I don't wish to take over the ownership of this software - I only want a working
 
 # Wrong People modules
 
-Modules for [VCV Rack](https://vcvrack.com/) 1.x.
+Modules for [VCV Rack](https://vcvrack.com/) 2.x.
 
 ![screenshot](./screenshots/all.jpg)
 
