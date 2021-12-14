@@ -5,7 +5,7 @@
 
 #define LUA_COMPAT_APIINTCASTS
 #include "lua.hpp"
-
+#include <iostream>
 // Based on Frank Buss's experimental module
 // (https://github.com/FrankBuss/FrankBussRackPlugin/blob/experimental/src/Lua.cpp)
 
