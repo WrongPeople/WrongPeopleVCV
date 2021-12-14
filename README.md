@@ -75,7 +75,7 @@ The 16 LEDs below the display indicate the status of the buffers:
 [Set up](https://vcvrack.com/manual/Building.html#setting-up-your-development-environment) your build environment, [download](https://vcvrack.com/downloads/) and extract the latest Rack SDK, then:
 
 ```
-git clone https://github.com/WrongPeople/WrongPeopleVCV.git
+git clone https://github.com/jpnielsen/WrongPeopleVCV.git
 cd WrongPeopleVCV
 git submodule update --init --recursive
 RACK_DIR=path/to/Rack-SDK make
