@@ -1,3 +1,9 @@
+port to VCV Rack 2.0 by Jens Peter Nielsen
+With Original Copyright
+I don't wish to take over the ownership of this software - I only want a working VCV Rack 2 module.
+
+<HR>
+
 # Wrong People modules
 
 Modules for [VCV Rack](https://vcvrack.com/) 1.x.
