@@ -115,8 +115,17 @@ struct MIDIPlayer : Module {
         configParam(STOP_PARAM, 0.0, 1.0, 0.0, "Stop");
         configParam(LOOP_PARAM, 0.0, 1.0, 0.0, "Loop");
 
+        configInput(PLAY_INPUT, "Play trigger");
+        configInput(STOP_INPUT, "Stop trigger");
+        configOutput(PLAY_OUTPUT, "Play trigger");
+        configOutput(STOP_OUTPUT, "Stop trigger");
+
         for(int t = 0; t < TRACKS; t++) {
             heldNotes[t].reserve(128);
+            configOutput(CV_OUTPUTS + t, string::f("Track %d v/oct pitch", t + 1));
+            configOutput(GATE_OUTPUTS + t, string::f("Track %d gate", t + 1));
+            configOutput(VELOCITY_OUTPUTS + t, string::f("Track %d velocity", t + 1));
+            configOutput(RETRIGGER_OUTPUTS + t, string::f("Track %d retrigger", t + 1));
         }
         onReset();
     }

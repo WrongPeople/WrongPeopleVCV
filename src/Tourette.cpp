@@ -190,12 +190,22 @@ void Tourette::processBuffers() {
     }
 }
 
+void Tourette::clearBuffers() {
+    for(unsigned int i = 0; i < BUFS_CNT; i++) {
+        bufs[i].stopPlaying();
+        bufs[i].setFull(false);
+        bufs[i].played = 0;
+    }
+}
+
+void Tourette::onReset() {
+    clearBuffers();
+}
 
 void Tourette::onSampleRateChange() {
     avgBufA.setLen((unsigned int) APP->engine->getSampleRate() / 100);
     avgBufB.setLen((unsigned int) APP->engine->getSampleRate() / 100);
 }
-
 
 void Tourette::process(const ProcessArgs &args) {
     if(threshLoDb != params[THRESH_LO_PARAM].getValue()) {
@@ -238,17 +248,24 @@ void Tourette::process(const ProcessArgs &args) {
     fPlay = false;
 }
 
+struct ClearBuffersMenuItem : MenuItem {
+    Tourette *module;
+
+    void onAction(const event::Action &e) override {
+        module->clearBuffers();
+    }
+};
 
 struct TouretteWidget : ModuleWidget {
 
     TouretteWidget(Tourette *module) {
-		setModule(module);
+        setModule(module);
         setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Tourette.svg")));
 
         addChild(createWidget<ScrewBlack>(Vec(0, 0)));
-		addChild(createWidget<ScrewBlack>(Vec(box.size.x - 1 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewBlack>(Vec(0, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewBlack>(Vec(box.size.x - 1 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+        addChild(createWidget<ScrewBlack>(Vec(box.size.x - 1 * RACK_GRID_WIDTH, 0)));
+        addChild(createWidget<ScrewBlack>(Vec(0, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
+        addChild(createWidget<ScrewBlack>(Vec(box.size.x - 1 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
         addInput(createInput<PortGreen>(TOURETTE_SIG_A_INPUT_POS, module, Tourette::SIG_A_INPUT));
         addInput(createInput<PortGreen>(TOURETTE_SIG_B_INPUT_POS, module, Tourette::SIG_B_INPUT));
@@ -282,6 +299,17 @@ struct TouretteWidget : ModuleWidget {
         addParam(createParam<SwitchVertical>(TOURETTE_STEREO_PARAM_POS, module, Tourette::STEREO_PARAM));
     }
 
+    void appendContextMenu(Menu *menu) override {
+        Tourette *module = dynamic_cast<Tourette*>(this->module);
+        assert(module);
+
+        menu->addChild(new MenuEntry);
+
+        ClearBuffersMenuItem *clearBuffersMenuItem = new ClearBuffersMenuItem;
+        clearBuffersMenuItem->text = "Clear buffers";
+        clearBuffersMenuItem->module = module;
+        menu->addChild(clearBuffersMenuItem);
+    }
 };
 
 

@@ -200,18 +200,27 @@ struct Tourette : Module {
     unsigned int maxBufSize = 0;
 
     Tourette() {
-		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
+        config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
         configParam(THRESH_LO_PARAM, -60.f, 3.f, -42.f, "Low Threshold", " dB");
         configParam(THRESH_HI_PARAM, -54.f, 6.f, -18.f, "High Threshold", " dB");
         configParam(Tourette::MIN_LEN_PARAM, -0.3f, 0.3, -0.1f, "Min shot length", " s");
-        configParam(Tourette::MAX_LEN_PARAM, -1.0f, 1.0, -0.3f, "Max shot length", " s");
+        configParam(Tourette::MAX_LEN_PARAM, -1.0f, 3.0, -0.3f, "Max shot length", " s");
         configParam(Tourette::REPEATS_PARAM, 1.0, 16.0, 8.0, "Repeats");
         configParam(Tourette::RAND_PARAM, 0.0, 1.0, 0.5, "Randomness");
         configParam(Tourette::ATTACK_PARAM, 0.0, 1.0, 0.0, "Attack", " s");
-        configParam(Tourette::RELEASE_PARAM, 0.0, 1.0, 0.0, "Release", " s");
+        configParam(Tourette::RELEASE_PARAM, 0.0, 3.0, 0.0, "Release", " s");
         configParam(Tourette::POLY_PARAM, 1.0, 8.0, 4.0, "Max polyphony");
-        configParam(Tourette::STEREO_PARAM, 0.f, 1.f, 0.f, "Stereo mode");
+        configSwitch(Tourette::STEREO_PARAM, 0.f, 1.f, 0.f, "Stereo mode", {"Split", "Stereo"});
+
+        configInput(SIG_A_INPUT, "Signal A");
+        configInput(SIG_B_INPUT, "Signal B");
+        configInput(PLAY_INPUT, "Trigger");
+        configOutput(SIG_A_OUTPUT, "Signal A");
+        configOutput(SIG_B_OUTPUT, "Signal B");
+
+        configBypass(SIG_A_INPUT, SIG_A_OUTPUT);
+        configBypass(SIG_B_INPUT, SIG_B_OUTPUT);
 
         onSampleRateChange();
 
@@ -224,6 +233,7 @@ struct Tourette : Module {
         }
     }
 
+    void onReset() override;
     void onSampleRateChange() override;
 
     void process(const ProcessArgs &args) override;
@@ -237,5 +247,6 @@ struct Tourette : Module {
     void processInputsSplit();
     void processInputsStereo();
     void processBuffers();
+    void clearBuffers();
 
 };
