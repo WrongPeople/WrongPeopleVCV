@@ -3,7 +3,7 @@
 
 void systemCreateDirectory(std::string path) {
 #if ARCH_WIN
-    CreateDirectory(path.c_str(), NULL);
+    CreateDirectoryA(path.c_str(), NULL);
 #else
     mkdir(path.c_str(), 0755);
 #endif
